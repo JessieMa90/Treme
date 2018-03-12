@@ -1,0 +1,63 @@
+{
+  "appenders": {
+    "console": {
+      "type": "console"
+    },
+    "access": {
+      "type": "dateFile",
+      "filename": "logs/access.log",
+      "pattern": ".yyyy-MM-dd",
+      "layout": {
+        "type": "pattern",
+        "pattern": "%d{yyyy-MM-dd hh:mm:ss} %z %c %p %m%n"
+      },
+      "daysToKeep": 0,
+      "keepFileExt": true
+    },
+    "app": {
+      "type": "file",
+      "filename": "logs/app.log",
+      "layout": {
+        "type": "pattern",
+        "pattern": "%d{yyyy-MM-dd hh:mm:ss} %z %c %p %m%n"
+      },
+      "maxLogSize": 5242880,
+      "backups": 10,
+      "keepFileExt": true
+    },
+    "errorFile": {
+      "type": "file",
+      "filename": "logs/errors.log"
+    },
+    "errors": {
+      "type": "logLevelFilter",
+      "appender": "errorFile",
+      "level": "error"
+    }
+  },
+  "categories": {
+    "default": {
+      "appenders": [
+        "console",
+        "app",
+        "access",
+        "errors"
+      ],
+      "level": "info"
+    },
+    "http": {
+      "appenders": [
+        "access"
+      ],
+      "level": "info"
+    },
+    "record": {
+      "appenders": [
+        "app"
+      ],
+      "level": "info"
+    }
+  },
+  "pm2": true,
+  "pm2InstanceVar": "analyze"
+}

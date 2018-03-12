@@ -1,0 +1,29 @@
+.login-root {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+  .login-form {
+    position: absolute;
+    overflow: hidden;
+    top: 40%;
+    left: 50%;
+    width: 400px;
+    transform: translate(-50%, -50%);
+
+    .welcome-msg {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .login-form-forgot {
+    float: right;
+  }
+
+  .login-form-button {
+    width: 100%;
+  }
+}
+
